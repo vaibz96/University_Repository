@@ -193,7 +193,7 @@ class Respository:
     #     print(pt)
 
     def instructor_pt_db(self):
-        DB_file = "C:\\Users\\shanb\\Database\\810_startup.db"
+        DB_file = os.path.join(os.path.dirname(os.path.abspath(__file__)),"Database\\810_startup.db")
 
         db = sqlite3.connect(DB_file)
 
@@ -211,14 +211,14 @@ class Respository:
 
 
 def main():
-    dir_path = 'C:\\Users\\shanb\\PycharmProjects\\810_SSW'
+    dir_path = os.path.dirname(os.path.abspath(__file__))
     Respository(dir_path, True)
 
 
 
 class FileRepository(unittest.TestCase):
     def test_repository(self):
-        dir_path = 'C:\\Users\\shanb\\PycharmProjects\\810_SSW'
+        dir_path = os.path.dirname(os.path.abspath(__file__))
         stevens = Respository(dir_path)
         student_expected = []
         instructor_expected = []
